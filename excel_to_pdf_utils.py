@@ -11,7 +11,8 @@ def excel_to_image(excel_file, output_image):
     ax.axis('off')
     ax.table(cellText=df.values, colLabels=df.columns, loc='center', cellLoc='center')
 
-    font_path = "malgun.ttf"  # 또는 나눔고딕 TTF
+    # ✅ 여기에서 font_path 안전하게 설정
+    font_path = os.path.join(os.path.dirname(__file__), "malgun.ttf")
     font_prop = fm.FontProperties(fname=font_path)
     plt.rcParams['font.family'] = font_prop.get_name()
 
